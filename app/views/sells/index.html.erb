@@ -1,0 +1,18 @@
+<h1>Lista de ventas</h1>
+
+<table>
+	<tr>
+		<th>Total de la venta</th>
+		<th>comentarios</th>
+		<th>Acciones</th>
+	</tr>
+	<% @sells.each do |sell| %>
+
+		<tr>
+			<td><%= sell.total %></td>
+			<td><%= sell.comment %></td>
+			<td><%= link_to 'Ver detalle', url_for(controller: :sells, action: :show, id: sell.id) %></td>
+
+		</tr>
+	<% end %>
+</table>

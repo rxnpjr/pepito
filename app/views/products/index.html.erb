@@ -1,0 +1,32 @@
+<h1>Lista de Productos</h1>
+
+<table>
+	<tr>
+		<th>Referencia</th>
+		<th>Precio</th>
+		<th>Cantidad</th>
+		<th>Marca</th>
+		<th>Nombre</th>
+		<th>Descripción</th>
+		<th>Talla</th>
+		<th>Color</th>
+	</tr>
+	<% @products.each do |product| %>
+
+		<tr>
+			<td><%= product.ref %></td>
+			<td><%= product.price %></td>
+			<td><%= product.quantity %></td>
+			<td><%= product.brand %></td>
+			<td><%= product.name %></td>
+			<td><%= product.description %></td>
+			<td><%= product.size %></td>
+			<td><%= product.color %></td>
+			
+			<td><%= link_to 'Ver detalle', url_for(controller: :products, action: :show, id: product.id) %></td>
+
+		</tr>
+	<% end %>
+</table>
+
+<%= link_to 'Volver a crear un producto', new_product_path %> 

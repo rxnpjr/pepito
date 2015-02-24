@@ -1,0 +1,17 @@
+<% if !@client.errors.empty? %>
+ <ol>
+ 	<% @client.errors.full_messages.each do |msg| %>
+ 	<li><%= msg %></li>
+ 	<% end %>
+ </ol>
+<% end %>
+
+<%= form_for @client do |f| %>
+NAME:	<%= f.text_field :name %>
+EMAIL:	<%= f.text_field :email %>
+<% unless @client.persisted? %>
+PASSWORD:	<%= f.password_field :password %>
+<% end %>
+	<%= f.submit %>
+
+<% end %>

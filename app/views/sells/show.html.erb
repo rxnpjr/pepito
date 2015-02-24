@@ -1,0 +1,29 @@
+<h1>Detalle de la venta</h1>
+
+<p><%= "Venta No: #{@sell.id}" %> <%= "Fecha: #{@sell.created_at}" %>
+</p>
+
+<table>
+	<tr>
+		<th>Nombre</th>
+		<th>Cantidad</th>
+		<th>Valor Unitario</th>
+		<th>Subtotal</th>
+	</tr>
+
+<% @sell.line_items.each do |line_item| %>
+<tr>
+<td><%= line_item.product.name %></td>
+<td><%= line_item.product.quantity %></td>
+<td><%= line_item.value %></td>
+<td><%= line_item.quantity %></td>
+</tr>
+<% end %>
+
+</table>
+
+<h2>Total:</h2> <%= @sell.total %>
+
+<h2>Comentarios:</h2> <%= @sell.comment %>
+<br/><br/>
+<%= link_to 'Volver', sells_index_path %>

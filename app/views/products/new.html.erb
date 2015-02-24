@@ -1,0 +1,35 @@
+<% if !@product.errors.empty? %>
+ <ol>
+ 	<% @product.errors.full_messages.each do |msg| %>
+ 	<li><%= msg %></li>
+ 	<% end %>
+ </ol>
+<% end %>
+
+<%= form_for @product do |f| %>
+Ref <%= f.text_field :ref %> 
+<br>
+PRICE <%= f.text_field :price %>
+<br>
+QUANTITY <%= f.text_field :quantity %>
+<br>
+<!-- BRAND <%= f.text_field :brand %> -->
+
+BRAND <%= f.label :brand %>
+<%= f.radio_button :brand, "rxn", :checked => true %> rxn
+<%= f.radio_button :brand, "rxnpjr" %> rxnpjr
+<%= f.radio_button :brand, "ohmycat" %> ohmycat
+
+<br>
+NAME <%= f.text_field :name %>
+<br>
+DESCRIPTION <%= f.text_field :description %>
+<br>
+SIZE <%= f.select(:size, ["small","medium","large"]) %>
+
+<br>
+COLOR <%= f.color_field :color %>
+<br>
+
+<%= f.submit %>
+<% end %>

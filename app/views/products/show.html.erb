@@ -1,0 +1,33 @@
+<h1>Detalle del producto</h1>
+
+<p><%= "Producto #{@product.id}" %> 
+</p>
+
+<table>
+	<tr>
+		<tr>
+		<th>Referencia</th>
+		<th>Precio</th>
+		<th>Cantidad</th>
+		<th>Marca</th>
+		<th>Nombre</th>
+		<th>Descripción</th>
+		<th>Talla</th>
+		<th>Color</th>
+	
+	</tr>
+
+<% @product.line_items.each do |line_item| %>
+<tr>
+<td><%= line_item.product.name %></td>
+<td><%= line_item.product.quantity %></td>
+<td><%= line_item.value %></td>
+<td><%= line_item.quantity %></td>
+</tr>
+<% end %>
+
+</table>
+
+
+
+<%= link_to 'Volver', sells_index_path %>
