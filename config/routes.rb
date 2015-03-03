@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  devise_for :clients
-  root 'wellcome#index'
+   devise_for :clients, :controllers => { :registrations => "registrations" }
+   get "/auth/:provider/callback", to: "omni_sessions#create"
+  root 'clients#index'
+
+ 
 
   resources :promos
 

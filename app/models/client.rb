@@ -7,6 +7,18 @@ class Client < ActiveRecord::Base
 	has_many :sells
 	after_create :send_email
 
+
+	def self.create_with_omniauth(auth)
+		self.create! do |client|
+			client.provider = auth['provider']
+			client.uid = auth['uid']
+			client.name = auth['info']['name']
+			client.token = auth['credentials']['name']
+			client.secret = auth['credentials']['name']
+			client.url_photo = auth['info']['image']
+		end
+	end
+
 # :doc_type, :doc, iban abajo
 	validates  :name, :email, presence: true
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i , message: "email valido" }

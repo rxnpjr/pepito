@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302235153) do
+ActiveRecord::Schema.define(version: 20150303015246) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "doc_type"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20150302235153) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.string   "email"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "url_photo"
   end
 
   add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
