@@ -11,17 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150220014426) do
+ActiveRecord::Schema.define(version: 20150302235153) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "doc_type"
     t.string   "doc"
     t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
     t.string   "password"
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "email"
   end
+
+  add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -59,6 +70,17 @@ ActiveRecord::Schema.define(version: 20150220014426) do
     t.string   "color"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+  end
+
+  create_table "promos", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.integer  "product_id"
+    t.date     "start_date"
+    t.date     "finish_date"
+    t.integer  "discount"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "sells", force: :cascade do |t|

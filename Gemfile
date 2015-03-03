@@ -25,6 +25,13 @@ gem 'delayed_job_active_record'
 
 gem 'whenever'
 
+gem 'devise'
+#autenticación de usuarios
+
+gem 'omniauth-twitter'
+#loggear con twitter
+
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
