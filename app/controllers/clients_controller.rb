@@ -8,8 +8,9 @@ class ClientsController < ApplicationController
 
   end
 
-  	def show
-  		
+  def show
+    @client = Client.find(params[:id])		
+    @sells= @client.sells
   end
 
   def new
@@ -17,7 +18,7 @@ class ClientsController < ApplicationController
   end
 
   def create
-  	params_filtered =params.require(:client).permit(:name, :email, :password)
+  	params_filtered =params.require(:client).permit(:name, :email, :password, :avatar)
   	@client = Client.new(params_filtered)
   	
   	if @client.save

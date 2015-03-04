@@ -2,9 +2,12 @@
 
 
 
-<h2>Nombre:</h2> <%= @sells.client.product_id %>
+<h2>Nombre:</h2> <%= @client.name %>
 
 <h2>Email:</h2> <%= @client.email %>
+
+<h2>Avatar</h2> <%= image_tag @client.avatar.thumb.url %>
+
 <br/><br/>
-<%= link_to 'Volver', clients_index_path %>
+<%= link_to 'Volver', clients_path %>
 

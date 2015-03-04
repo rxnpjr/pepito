@@ -12,6 +12,10 @@ EMAIL:	<%= f.text_field :email %>
 <% unless @client.persisted? %>
 PASSWORD:	<%= f.password_field :password %>
 <% end %>
+<%= f.label ':avatar' %> 
+
+Foto: <%= f.file_field :avatar %>
+
 	<%= f.submit %>
 
 <% end %>
