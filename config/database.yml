@@ -16,7 +16,7 @@ development:
   database: pepito_development
   pool: 5
   timeout: 5000
-  username: teslarobot
+  username: roxanna
   password: 
 
 # Warning: The database defined as "test" will be erased and

@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150304003148) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "clients", force: :cascade do |t|
     t.string   "doc_type"
     t.string   "doc"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150304003148) do
     t.string   "avatar"
   end
 
-  add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true
+  add_index "clients", ["reset_password_token"], name: "index_clients_on_reset_password_token", unique: true, using: :btree
 
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer  "priority",   default: 0, null: false
@@ -54,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150304003148) do
     t.datetime "updated_at"
   end
 
-  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority"
+  add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "product_id"
