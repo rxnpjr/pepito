@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
 
+  respond_to :html, :json, :xml
+
   before_action :load_client, only: [:show, :edit, :update, :destroy]
 
   def index

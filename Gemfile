@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+ gem 'sqlite3'
+#la otra base de datos
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -19,6 +21,8 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'mini_magick'
 
+# la gema del api
+gem 'rabl-rails'
 
 
 #para meter plantillas
@@ -37,6 +41,7 @@ gem 'devise'
 
 gem 'omniauth-twitter'
 #loggear con twitter
+
 
 
 # Use jquery as the JavaScript library
